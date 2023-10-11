@@ -80,3 +80,17 @@ GPT3_RESPONSE=$(curl -s -X POST -H "Authorization: Bearer Your-OpenAI-API-key" -
 # Save GPT-3 generated greeting to a file
 echo "$GPT3_RESPONSE" > "$DIR/docs/greeting.txt"
 echo "GPT-3 generated greeting saved as text."
+
+# Ensure data directory exists
+mkdir -p "$DIR/data"
+
+# Prompt for OpenAI API key if not in .env
+if ! grep -q "OPENAI_API_KEY" "$DIR/.env"; then
+    echo -n "Enter OpenAI API key: "
+    read OPENAI_API_KEY
+    echo "OPENAI_API_KEY=$OPENAI_API_KEY" >> "$DIR/.env"
+fi
+
+# Execute Langchain script
+echo "Executing Langchain script..."
+python "$DIR/src/langchain_script.py"
