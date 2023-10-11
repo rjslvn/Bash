@@ -7,6 +7,19 @@
 # for project information.
 # =================================================================
 
+# Check for a .firstrun file to determine if this is the first run
+if [[ ! -f "$DIR/.firstrun" ]]; then
+    echo "This appears to be the first time you are running this script."
+    echo "Setting up necessary configurations..."
+
+    touch "$DIR/.firstrun"
+else
+    echo "Welcome back! It seems you have run this script before."
+fi
+
+# Now, every time you run the script, it will check for the existence of the .firstrun file
+# to determine whether or not to perform the first run setup tasks.
+
 # Helper function to check for command existence
 check_command() {
     command -v "$1" >/dev/null 2>&1 || { echo >&2 "$1 is required but it's not installed. Aborting."; exit 1; }
