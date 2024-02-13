@@ -100,3 +100,14 @@
 - `journalctl -u service`: View logs for a service.
 - `logrotate`: Rotate, compress, and mail system logs.
 
+## Kernel and Boot Management (Continued)
+- `update-grub`: Update the GRUB bootloader configuration.
+- `dmesg`: Display kernel-related messages and diagnostics.
+- `sysctl -p`: Reload the kernel parameters from `/etc/sysctl.conf`.
+
+## Miscellaneous Commands (Continued)
+- `watch command`: Execute a program periodically, showing output fullscreen.
+- `alias newcommand='command sequence'`: Create an alias for a command or sequence of commands.
+- `lsof -i`: List open files and their corresponding network connections.
+- `crontab -e`: Edit crontab to schedule scripts.
+- `uptime`: Show how long the system has been running, along with load average.
